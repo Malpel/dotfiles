@@ -20,6 +20,8 @@ height = 27
 #radius = 6.0
 fixed-center = true
 
+locale = fi_FI.UTF-8
+
 background = ${colors.background}
 foreground = ${colors.foreground}
 
@@ -42,14 +44,18 @@ font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=10;1"
 font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=10;1"
 font-5 = "Font Awesome 5 Brands:pixelsize=10;1"
 
-modules-left = bspwm i3
-modules-center = date 
-modules-right = filesystem xbacklight volume xkeyboard memory cpu wlan battery powermenu
+modules-left = bspwm i3 xwindow
+modules-center = time
+modules-right = volume filesystem cpu memory date 
 
-tray-position = right
-tray-padding = 2
+; powermenu, xkeyboard, wlan, xbacklight,  bttery
+
+;tray-position = left
+;tray-padding = 2
 ;tray-transparent = true
-;tray-background = #0063ff
+;tray-background = #0088ff
+;tray-offset-x = 15%
+;tray-offset-y = 0
 
 ;wm-restack = bspwm
 ;wm-restack = i3
@@ -127,6 +133,8 @@ format-foreground = ${colors.white}
 index-sort = true
 wrapping-scroll = false
 
+
+
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
@@ -193,20 +201,20 @@ card = intel_backlight
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = " "
+;format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-foreground = ${colors.white}
-format-underline = #f90000
-label = %percentage:2%%
+;format-underline = #f90000
+label = CPU %percentage:2%%
 
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = " "
+;format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-foreground = ${colors.white}
-format-underline = #4bffdc
-label = %percentage_used%%
+;format-underline = #4bffdc
+label = RAM %percentage_used%%
 
 [module/wlan]
 type = internal/network
@@ -246,22 +254,32 @@ format-disconnected =
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
-[module/date]
+[module/time]
 type = internal/date
 interval = 5
+time = %H:%M
+;time-alt = %H:%M:%S
+
+;format-prefix = " "
+format-foreground = ${colors.white}
+;format-background =  ${colors.primary}
+;#336699 #993399 #990033 #ffcc00
+;format-underline = #0a6cf5
+
+label =  %time%
+label-padding = 2
+
+[module/date]
+type = internal/date
+interval = 3600
 
 date = %d.%m.%Y
-date-alt = " %Y-%m-%d"
+;date-alt = " %Y-%m-%d"
 
-time = %H:%M
-time-alt = %d.%m.%Y
-
-format-prefix = " "
-format-foreground = ${colors.white}
-format-underline = #0a6cf5
-
-
-label = %time% 
+format-foreground = ${colors.black}
+format-background = ${colors.primary}
+label-padding = 2
+label = %date%
 
 [module/volume]
 type = internal/volume
@@ -273,7 +291,7 @@ label-volume-foreground = ${colors.white}
 
 format-muted-prefix = " "
 format-muted-foreground = ${colors.white}
-label-muted = 
+label-muted =  Muted
 
 bar-volume-width = 10
 bar-volume-foreground-0 = #55aa55
@@ -283,7 +301,7 @@ bar-volume-foreground-3 = #55aa55
 bar-volume-foreground-4 = #55aa55
 bar-volume-foreground-5 = #f5a70a
 bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = false
+bar-volume-gradient = true
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
 bar-volume-fill = ─
