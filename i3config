@@ -13,7 +13,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Cantarell 10
+font pango:DejaVu Sans 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -30,8 +30,8 @@ font pango:Cantarell 10
 floating_modifier $mod
 
 # start a terminal
-#bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec i3-sensible-terminal
+#bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -130,6 +130,20 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
+
+# Audio controls
+
+# Pulse Audio
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Spotify/media players
+bindsym XF86AudioPlay exec playerctl play-pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -193,9 +207,13 @@ gaps outer 2
 smart_gaps on
 smart_borders on
 
-exec_always feh --bg-scale /home/malpel/Pictures/redmoon.jpg
-exec wal -R
-exec compton
+bindsym $mod+Shift+x exec i3lock -i ~/Pictures/citygrey.jpg --indicator --keylayout 0 -k --insidecolor=#00336600 --ringcolor=#FF9900FF --keyhlcolor=#660066FF --wrongtext="Incorrect" --noinputtext="Empty" --veriftext="..." --timecolor=#ffffffff --datecolor=#ffffffff
+
+exec_always --no-startup-id feh --bg-scale /home/malpel/Pictures/citygrey.jpg
+exec --no-startup-id wal -R
+exec --no-startup-id compton
 exec_always --no-startup-id ~/.config/polybar/launch.sh
-exec redshift
+exec --no-startup-id redshift -c ~/.config/redshift.conf
+exec --no-startup-id xrandr --output DVI-D-1 --left-of DVI-I-1
+
 
