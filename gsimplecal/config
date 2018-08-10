@@ -1,0 +1,8 @@
+
+show_week_numbers = 1
+mainwindow_xoffset = 880
+mainwindow_yoffset = -412
+mainwindow_position = center
+close_on_unfocus = 1
+external_viewer = gnome-calendar
+

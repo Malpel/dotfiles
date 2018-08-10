@@ -30,8 +30,8 @@ font pango:DejaVu Sans 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
-#bindsym $mod+Return exec urxvt
+#bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -209,11 +209,11 @@ smart_borders on
 
 bindsym $mod+Shift+x exec i3lock -i ~/Pictures/citygrey.jpg --indicator --keylayout 0 -k --insidecolor=#00336600 --ringcolor=#FF9900FF --keyhlcolor=#660066FF --wrongtext="Incorrect" --noinputtext="Empty" --veriftext="..." --timecolor=#ffffffff --datecolor=#ffffffff
 
-exec_always --no-startup-id feh --bg-scale /home/malpel/Pictures/citygrey.jpg
+exec_always --no-startup-id feh --bg-scale /home/malpel/Pictures/spacesurf.jpg
 exec --no-startup-id wal -R
 exec --no-startup-id compton
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id redshift -c ~/.config/redshift.conf
 exec --no-startup-id xrandr --output DVI-D-1 --left-of DVI-I-1
-
+exec --no-startup-id light-locker
 
