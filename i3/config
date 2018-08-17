@@ -37,7 +37,7 @@ bindsym $mod+Return exec urxvt
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec rofi -show drun -theme ~/.cache/wal/colors-rofi-dark.rasi
+bindsym $mod+d exec rofi -show drun -theme ~/.config/rofi/colors-rofi-dark.rasi
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -165,10 +165,10 @@ mode "resize" {
         bindsym odiaeresis resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 20 px or 20 ppt
+        bindsym Down resize grow height 20 px or 20 ppt
+        bindsym Up resize shrink height 20 px or 20 ppt
+        bindsym Right resize grow width 20 px or 20 ppt
 
         # back to normal: Enter or Escape or $mod+r
         bindsym Return mode "default"
@@ -178,19 +178,11 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-#set $bg-color	#222222
-#set $inactive-bg-color
-#set $text-color	#000000
-#set $inactive-text-color
-#set $urgent-bg-color
-#set $border-color
-
-# class                        border              backgr.            text            
-#client.focused                $bg-color           $bg-color          $text-color   
-#client.focused_inactive       $inactive-bg-color  $inactive-bg-color $inactive-text-color 
-#client.unfocused              $inactive-bg-color  $inactive-bg-color $inactive-text-color 
-#client.urgent                 $urgent-bg-color    $urgent-bg-color   $text-color 
-
+# class                 border  backgr. text    indicator child_border
+client.focused          #b2a191    #000  #000    #b2a191
+#client.unfocused        #4040  #000 #000
+#client.focused_inactive #202020  #000 #000
+#client.background       #1d1f21
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -200,17 +192,17 @@ bindsym $mod+r mode "resize"
 #	output primary
 #}
 
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 2
 
 gaps inner 10
-gaps outer 2
+gaps outer 10
 smart_gaps on
 smart_borders on
 
 bindsym $mod+Shift+x exec i3lock -i ~/Pictures/citygrey.jpg --indicator --keylayout 0 -k --insidecolor=#00336600 --ringcolor=#FF9900FF --keyhlcolor=#660066FF --wrongtext="Incorrect" --noinputtext="Empty" --veriftext="..." --timecolor=#ffffffff --datecolor=#ffffffff
 
-exec_always --no-startup-id feh --bg-scale /home/malpel/Pictures/spacesurf.jpg
-exec --no-startup-id wal -R
+exec_always --no-startup-id feh --bg-fill /home/malpel/Pictures/statue.png
+#exec --no-startup-id wal -R
 exec --no-startup-id compton
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 exec --no-startup-id redshift -c ~/.config/redshift.conf

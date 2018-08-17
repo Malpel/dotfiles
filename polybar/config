@@ -8,8 +8,8 @@ foreground-alt = #555
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
-white = #fff
-black = #000
+white = #cfcfcf
+black = #171717
 
 [bar/example]
 monitor = ${env:MONITOR:DVI-I-1}
@@ -22,8 +22,8 @@ fixed-center = true
 
 locale = fi_FI.UTF-8
 
-background = ${colors.background}
-foreground = ${colors.foreground}
+background = ${colors.black}
+foreground = ${colors.white}
 
 line-size = 3
 line-color = #f00
@@ -45,9 +45,8 @@ font-2 = siji:pixelsize=10;1
 font-3 = "Font Awesome 5 Free:style=Regular:pixelsize=13;1"
 font-4 = "Font Awesome 5 Free:style=Solid:pixelsize=13;1"
 font-5 = "Font Awesome 5 Brands:pixelsize=13;1"
-;font-6 = "Ubuntu Nerd Font:style=Bold:size=13;1"
-font-6 = "ProFontIIx Nerd Font:style=Bold:size=13;1"
-;font-6 = "Source-Code-Pro:style=Solid:spixelsize=12;1" BitstreamVeraSansMono
+font-6 = "Ubuntu Nerd Font:style=Bold:size=13;1"
+;font-6 = "ProFontIIx Nerd Font:style=Bold:size=13;1"
 
 modules-left = bspwm i3 xwindow
 modules-center = time
@@ -82,8 +81,8 @@ type = internal/xwindow
 label = %title:0:30:...%
 label-font = 7
 label-padding = 2
-format-background = ${colors.background}
-format-foreground = ${colors.foreground}
+format-background = ${colors.black}
+format-foreground = ${colors.white}
 
 
 [module/xkeyboard]
@@ -170,20 +169,21 @@ label-mode-background = ${colors.primary}
 
 ; focused = Active workspace on focused monitor
 label-focused = %icon%
-label-focused-foreground = ${colors.background}
-label-focused-background = ${colors.foreground}
-label-focused-underline = ${colors.foreground}
+label-focused-foreground = ${colors.black}
+label-focused-background = ${colors.white}
+;label-focused-underline = ${colors.foreground}
 label-focused-padding = ${module/bspwm.label-focused-padding}
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %icon%
 label-unfocused-padding = ${module/bspwm.label-occupied-padding}
-
+label-unfocused-background = ${colors.black}
+label-unfocused-foreground = ${colors.white}
 ; visible = Active workspace on unfocused monitor
 label-visible = %icon%
 label-visible-background = ${self.label-focused-background}
-label-visible-foreground = ${colors.background}
-label-visible-underline = ${self.label-focused-underline}
+label-visible-foreground = ${colors.black}
+;label-visible-underline = ${self.label-focused-underline}
 label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
@@ -271,6 +271,7 @@ interval = 3.0
 
 label-connected = 
 label-connected-alt = %local_ip%
+label-connected-foreground = ${colors.white}
 format-disconnected =
 ;format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
@@ -288,8 +289,8 @@ label = %time%
 label-font = 7
 label-padding = 2
 
-;format-foreground = ${colors.background}
-;format-background = ${colors.foreground}
+format-foreground = ${colors.white}
+format-background = ${colors.black}
 
 
 [module/date]
@@ -299,8 +300,8 @@ date = %d.%m.%Y
 time = %A
 ;date-alt = "%Y-%m-%d"
 format = %{A:gsimplecal:} <label> %{A}
-;format-foreground = ${colors.background}
-;format-background = ${colors.foreground}
+format-foreground = ${colors.white}
+format-background = ${colors.black}
 label =  %time:0:2%, %date%
 label-font = 7
 
@@ -309,24 +310,24 @@ label-font = 7
 type = internal/volume
 
 format-volume = <label-volume> <bar-volume>
-
+format-volume-foreground = ${colors.white}
 label-volume = 
-;label-volume-foreground = ${colors.white}
+label-volume-foreground = ${colors.white}
 
-format-muted-prefix = " "
-;format-muted-foreground = ${colors.white}
+;format-muted-prefix = " "
+format-muted-foreground = ${colors.white}
 label-muted =  Muted
 label-muted-font = 7
 
 bar-volume-width = 10
-;bar-volume-foreground-0 = #55aa55
+bar-volume-foreground = ${colors.white}
 ;bar-volume-foreground-1 = #55aa55
 ;bar-volume-foreground-2 = #55aa55
 ;bar-volume-foreground-3 = #55aa55
 ;bar-volume-foreground-4 = #55aa55
 ;bar-volume-foreground-5 = #f5a70a
 ;bar-volume-foreground-6 = #ff5555
-bar-volume-gradient = true
+bar-volume-gradient = false
 bar-volume-indicator = |
 bar-volume-indicator-font = 2
 bar-volume-fill = ─

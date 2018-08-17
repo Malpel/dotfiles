@@ -1,0 +1,51 @@
+URxvt.scrollBar:false
+URxvt.transparent: false
+! URxvt.shading: 15
+URxvt.font: xft:Source Code Pro Medium:size:10:antialias=true:hinting=true
+URxvt.boldFont: 
+URxvt.letterSpace: -1
+
+URxvt.borderWidth: 0
+URxvt.internalBorder: 10px
+URxvt.externalBorder: 0px
+URxvt.borderColor: #171717
+URxvt.borderless: true
+
+! special
+URxvt.foreground:   #b2a191
+URxvt.background:   #171717
+URxvt.cursorColor:  #b2a191
+
+! black
+URxvt.color0:       #202020
+URxvt.color8:       #404040
+
+! red
+URxvt.color1:       #bf3f34
+URxvt.color9:       #ff6c5f
+
+! green
+URxvt.color2:       #707d22
+URxvt.color10:      #b8ca4b
+
+! yellow
+URxvt.color3:       #bf7a29
+URxvt.color11:      #c7a551
+
+! blue
+URxvt.color4:       #627a92
+URxvt.color12:      #95b9de
+
+! magenta
+URxvt.color5:       #75507b
+URxvt.color13:      #ad7fa8
+
+! cyan
+URxvt.color6:       #757978
+URxvt.color14:      #9fa590
+
+! white
+URxvt.color7:       #b2a191
+URxvt.color15:      #e8d0c3
+
+rofi.font: Ubuntu Nerd Font 13
